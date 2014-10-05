@@ -1,0 +1,7 @@
+node_modules/
+test.js
+coverage/
+build/
+npm-debug.log
+.DS_Store
+tmp/
