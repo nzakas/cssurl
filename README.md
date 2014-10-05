@@ -1,15 +1,19 @@
-[![Build Status](https://travis-ci.org/nzakas/css-url-rewriter.png?branch=master)](https://travis-ci.org/box/leche)
+[![Build Status](https://travis-ci.org/nzakas/cssurl.png?branch=master)](https://travis-ci.org/nzakas/cssurl)
 
 # CSS URL Rewriter
 
 There are many reasons why you would want to systematically replace URLs in CSS code: to convert them into data URIs, to point them to a CDN, to replace a filename with an auto-generated one, and so on. This utility helps by parsing out the URLs in a given string of CSS code and allowing you to replace them with any value you choose. The resulting CSS code is exactly the same as the original except that the URLs have been replaced according to your preferences.
 
+## How It Works
+
+The CSS URL Rewriter uses a CSS tokenizer to safely find all CSS URLs. This makes any change completely safe because there is no reliance on regular expressions to pull URLs out of CSS.
+
 ## Usage
 
 ```js
-var CSSURLRewriter = require("css-url-rewriter");
+var URLRewriter = require("cssurl").URLRewriter;
 
-var rewriter = new CSSURLRewriter(function(url) {
+var rewriter = new URLRewriter(function(url) {
     // automatically append a query string with a unique value to bust caches
     return url + "?v=" + Date.now();
 });
@@ -22,6 +26,15 @@ As the CSS URL Rewriter goes through the CSS code, it will call the function pas
 ## Limitations
 
 The CSS URL Rewriter will only replace URLs represented as URL tokens, that means it must be in the form `url(foo.css)` and not just `"foo.css"`, as is allowed in some parts of CSS.
+
+## Development
+
+In order to run tests, clone this repository and then run:
+
+```
+$ npm i
+$ npm test
+```
 
 ## Copyright and License (BSD3)
 

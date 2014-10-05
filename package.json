@@ -1,9 +1,9 @@
 {
-  "name": "css-url-rewriter",
+  "name": "cssurl",
   "author": "nzakas",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A utility to help rewrite URLs contained in CSS code",
-  "main": "./lib/css-url-rewriter.js",
+  "main": "./index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/nzakas/css-url-rewriter"

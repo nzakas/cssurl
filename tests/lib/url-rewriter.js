@@ -1,5 +1,5 @@
 /**
- * @fileoverview Tests for CSSURLRewriter
+ * @fileoverview Tests for URLRewriter
  * @author nzakas
  */
 
@@ -12,16 +12,16 @@
 //------------------------------------------------------------------------------
 
 var assert = require("chai").assert,
-	CSSURLRewriter = require("../../lib/css-url-rewriter");
+	URLRewriter = require("../../lib/url-rewriter");
 
-describe("CSSURLRewriter", function() {
+describe("URLRewriter", function() {
 
-	describe("new CSSURLRewriter", function() {
+	describe("new URLRewriter", function() {
 
 		it("should throw an error when the first argument is missing", function() {
 			assert.throws(function() {
 				/*eslint-disable no-unused-vars*/
-				var rewriter = new CSSURLRewriter();
+				var rewriter = new URLRewriter();
 				/*eslint-enable no-unused-vars*/
 
 			});
@@ -30,7 +30,7 @@ describe("CSSURLRewriter", function() {
 		it("should throw an error when the first argument isn't a function", function() {
 			assert.throws(function() {
 				/*eslint-disable no-unused-vars*/
-				var rewriter = new CSSURLRewriter("hallo");
+				var rewriter = new URLRewriter("hallo");
 				/*eslint-enable no-unused-vars*/
 			});
 		}, /Constructors expects a function/);
@@ -40,7 +40,7 @@ describe("CSSURLRewriter", function() {
 	describe("rewrite()", function() {
 
 		it("should pass URL into replacer function when URLs are surrounded by double quotes", function() {
-			var rewriter = new CSSURLRewriter(function(url) {
+			var rewriter = new URLRewriter(function(url) {
 				assert.equal(url, "foo.css");
 				return "bar.css";
 			});
@@ -50,7 +50,7 @@ describe("CSSURLRewriter", function() {
 		});
 
 		it("should pass URL into replacer function when URLs are surrounded by single quotes", function() {
-			var rewriter = new CSSURLRewriter(function(url) {
+			var rewriter = new URLRewriter(function(url) {
 				assert.equal(url, "foo.css");
 				return "bar.css";
 			});
@@ -60,7 +60,7 @@ describe("CSSURLRewriter", function() {
 		});
 
 		it("should pass URL into replacer function when URLs are not surrounded quotes", function() {
-			var rewriter = new CSSURLRewriter(function(url) {
+			var rewriter = new URLRewriter(function(url) {
 				assert.equal(url, "foo.css");
 				return "bar.css";
 			});
@@ -70,7 +70,7 @@ describe("CSSURLRewriter", function() {
 		});
 
 		it("should pass URL into replacer function when URLs are surrounded by whitespace", function() {
-			var rewriter = new CSSURLRewriter(function(url) {
+			var rewriter = new URLRewriter(function(url) {
 				assert.equal(url, "foo.css");
 				return "bar.css";
 			});
@@ -80,7 +80,7 @@ describe("CSSURLRewriter", function() {
 		});
 
 		it("should replace URLs in output when URLs are surrounded by double quotes", function() {
-			var rewriter = new CSSURLRewriter(function() {
+			var rewriter = new URLRewriter(function() {
 				return "bar.css";
 			});
 
@@ -89,7 +89,7 @@ describe("CSSURLRewriter", function() {
 		});
 
 		it("should replace URLs in output when URLs are surrounded by single quotes", function() {
-			var rewriter = new CSSURLRewriter(function() {
+			var rewriter = new URLRewriter(function() {
 				return "bar.css";
 			});
 
@@ -98,7 +98,7 @@ describe("CSSURLRewriter", function() {
 		});
 
 		it("should replace URLs in output when URLs aren't surrounded by quotes", function() {
-			var rewriter = new CSSURLRewriter(function() {
+			var rewriter = new URLRewriter(function() {
 				return "bar.css";
 			});
 
@@ -107,7 +107,7 @@ describe("CSSURLRewriter", function() {
 		});
 
 		it("should maintain line endings when \\n is used", function() {
-			var rewriter = new CSSURLRewriter(function() {
+			var rewriter = new URLRewriter(function() {
 				return "bar.css";
 			});
 
@@ -116,7 +116,7 @@ describe("CSSURLRewriter", function() {
 		});
 
 		it("should maintain line endings when \\r\\n is used", function() {
-			var rewriter = new CSSURLRewriter(function() {
+			var rewriter = new URLRewriter(function() {
 				return "bar.css";
 			});
 
@@ -125,7 +125,7 @@ describe("CSSURLRewriter", function() {
 		});
 
 		it("should maintain formatting when comments are present", function() {
-			var rewriter = new CSSURLRewriter(function() {
+			var rewriter = new URLRewriter(function() {
 				return "bar.css";
 			});
 
