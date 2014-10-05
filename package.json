@@ -1,7 +1,7 @@
 {
   "name": "css-url-rewriter",
   "author": "nzakas",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A utility to help rewrite URLs contained in CSS code",
   "main": "./lib/css-url-rewriter.js",
   "repository": {
