@@ -23,17 +23,16 @@ describe("URLRewriter", function() {
 				/*eslint-disable no-unused-vars*/
 				var rewriter = new URLRewriter();
 				/*eslint-enable no-unused-vars*/
-
-			});
-		}, /Constructors expects a function/);
+			}, /Constructor expects a function/);
+		});
 
 		it("should throw an error when the first argument isn't a function", function() {
 			assert.throws(function() {
 				/*eslint-disable no-unused-vars*/
 				var rewriter = new URLRewriter("hallo");
 				/*eslint-enable no-unused-vars*/
-			});
-		}, /Constructors expects a function/);
+			}, /Constructor expects a function/);
+		});
 
 	});
 
