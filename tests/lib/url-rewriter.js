@@ -12,6 +12,7 @@
 //------------------------------------------------------------------------------
 
 var assert = require("chai").assert,
+	fs = require("fs"),
 	URLRewriter = require("../../lib/url-rewriter");
 
 describe("URLRewriter", function() {
@@ -132,6 +133,16 @@ describe("URLRewriter", function() {
 			var result = rewriter.rewrite("/*import something*/\n@import url(foo.css) screen;");
 			assert.equal(result, "/*import something*/\n@import url(bar.css) screen;");
 		});
+
+		it("should replace URLs when there are two URLs on the same line", function() {
+			var rewriter = new URLRewriter(function() {
+				return "bar.css";
+			});
+
+			var result = rewriter.rewrite(fs.readFileSync("./tests/fixtures/minified-before.css", "utf8"));
+			assert.equal(result, fs.readFileSync("./tests/fixtures/minified-after.css", "utf8"));
+		});
+
 
 	});
 
