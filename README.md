@@ -1,14 +1,16 @@
 [![Build Status](https://travis-ci.org/nzakas/cssurl.png?branch=master)](https://travis-ci.org/nzakas/cssurl)
 
-# CSS URL Rewriter
+# CSS URL Utilities
 
 There are many reasons why you would want to systematically replace URLs in CSS code: to convert them into data URIs, to point them to a CDN, to replace a filename with an auto-generated one, and so on. This utility helps by parsing out the URLs in a given string of CSS code and allowing you to replace them with any value you choose. The resulting CSS code is exactly the same as the original except that the URLs have been replaced according to your preferences.
 
-## How It Works
+This library contains utilities to help manipulate and change CSS URLs.
 
-The CSS URL Rewriter uses a CSS tokenizer to safely find all CSS URLs. This makes any change completely safe because there is no reliance on regular expressions to pull URLs out of CSS.
+## CSS URL Rewriter
 
-## Usage
+The CSS URL rewriter uses a CSS tokenizer to safely find all CSS URLs. This makes any change completely safe because there is no reliance on regular expressions to pull URLs out of CSS.
+
+### Usage
 
 ```js
 var URLRewriter = require("cssurl").URLRewriter;
@@ -21,11 +23,26 @@ var rewriter = new URLRewriter(function(url) {
 var result = rewriter.rewrite(cssCode);
 ```
 
-As the CSS URL Rewriter goes through the CSS code, it will call the function passed to the `CSSURLRewriter` constructor and pass in each URL that it finds. The `url` is the URL as found in the CSS code with any quotes and surrounding whitespace removed (it does *not* contain the `url()`). You can then inspect the URL, modify it however you want, and return the value you want to use in its place.
+As the CSS URL rewriter goes through the CSS code, it will call the function passed to the `CSSURLRewriter` constructor and pass in each URL that it finds. The `url` is the URL as found in the CSS code with any quotes and surrounding whitespace removed (it does *not* contain the `url()`). You can then inspect the URL, modify it however you want, and return the value you want to use in its place.
 
-## Limitations
+### Limitations
 
 The CSS URL Rewriter will only replace URLs represented as URL tokens, that means it must be in the form `url(foo.css)` and not just `"foo.css"`, as is allowed in some parts of CSS.
+
+## CSS URL Translator
+
+The CSS URL translator is a utility that can translate CSS URLs relative to different CSS files. Sometimes you might want to move a CSS file, for example from `css/sprites/foo.css` to `css/sprites.css`. When you do that, any relative URLs in the CSS file will no longer be accurate. The CSS URL translator, when used in conjunction with the CSS URL rewriter, makes it easy to make these changes by automatically calculating the new URL path. It's also smart enough not to translate any non-relative URLs.
+
+### Usage
+
+```js
+var URLTranslator = require("cssurl").URLTranslator;
+
+var translator = new URLTranslator();
+var result = translator.translate("../../img/foo.png", "css/sprites/foo.css", "css/sprites.css");
+
+console.log(result);    // "../img/foo.png"
+```
 
 ## Development
 

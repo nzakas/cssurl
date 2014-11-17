@@ -13,6 +13,12 @@
     "url"
   ],
   "license": "BSD-3-Clause",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "lib"
+  ],
   "scripts": {
     "test": "node Makefile.js",
     "lint": "node Makefile.js lint",
@@ -32,6 +38,7 @@
     "eslint": "^0.8.2",
     "istanbul": "^0.3.2",
     "jsdoc": "^3.3.0-alpha9",
+    "leche": "^1.0.1",
     "shelljs": "^0.3.0",
     "shelljs-nodecli": "^0.1.1"
   }
