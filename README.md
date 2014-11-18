@@ -29,6 +29,22 @@ As the CSS URL rewriter goes through the CSS code, it will call the function pas
 
 The CSS URL Rewriter will only replace URLs represented as URL tokens, that means it must be in the form `url(foo.css)` and not just `"foo.css"`, as is allowed in some parts of CSS.
 
+## CSS URL Rewrite Stream
+
+The CSS URL rewrite stream uses the URL rewriter inside of a stream so you can easily pipe code to and from.
+
+### Usage
+
+```js
+var URLRewriteStream = require("cssurl").URLRewriteStream;
+
+fs.createReadStream("my.css").pipe(new URLRewriteStream(function(url) {
+    // automatically append a query string with a unique value to bust caches
+    return url + "?v=" + Date.now();
+})).pipe(fs.createWriteStream("my-new.css"));
+
+```
+
 ## CSS URL Translator
 
 The CSS URL translator is a utility that can translate CSS URLs relative to different CSS files. Sometimes you might want to move a CSS file, for example from `css/sprites/foo.css` to `css/sprites.css`. When you do that, any relative URLs in the CSS file will no longer be accurate. The CSS URL translator, when used in conjunction with the CSS URL rewriter, makes it easy to make these changes by automatically calculating the new URL path. It's also smart enough not to translate any non-relative URLs.

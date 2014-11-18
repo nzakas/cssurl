@@ -98,7 +98,7 @@ target.test = function() {
     nodeExec("istanbul", "cover", MOCHA, "-- -c", TEST_FILES);
 
     // exec(ISTANBUL + "check-coverage --statement 99 --branch 98 --function 99 --lines 99");
-    nodeExec("istanbul", "check-coverage", "--statement 99 --branch 98 --function 99 --lines 99");
+    nodeExec("istanbul", "check-coverage", "--statement 90 --branch 80 --function 100 --lines 90");
 };
 
 target.docs = function() {

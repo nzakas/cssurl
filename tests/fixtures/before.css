@@ -1,0 +1,44 @@
+.standard_logo {
+    background: url(../img/box/box-logo-white.png) -8px 0 no-repeat;
+    width: 58px;
+    height: 30px;
+    margin-right: 16px;
+}
+
+.standard_logo_glow {
+    background: url(../img/box/box-logo-white.png) 0 -30px no-repeat;
+    position: absolute;
+    top: 2px;
+    left: -8px;
+    width: 69px;
+    height: 45px;
+    opacity: 0;
+    -webkit-transition: all 350ms ease-in-out;
+    transition: all 350ms ease-in-out;
+}
+
+.standard_logo_glow:hover {
+    opacity: 1;
+}
+
+.standard_light_blue_bg {
+    background-color: #eff5f9;
+}
+
+.ie7 .standard_logo {
+    cursor: pointer;
+}
+
+.lte_ie8 .standard_logo_glow {
+    display: none;
+}
+
+.nav ul {
+    margin: 0;
+}
+
+.nav li {
+    float: left;
+    margin: 0 1px;
+    zoom: 1;
+}
