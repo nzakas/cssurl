@@ -6,7 +6,7 @@
   "main": "./index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nzakas/css-url-rewriter"
+    "url": "https://github.com/nzakas/cssurl"
   },
   "keywords": [
     "css",
