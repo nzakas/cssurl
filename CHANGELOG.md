@@ -1,3 +1,9 @@
+v1.2.0 - November 17, 2014
+
+* 1.2.0 (Nicholas C. Zakas)
+* Add URLRewriteStream (Nicholas C. Zakas)
+* 1.1.0 (Nicholas C. Zakas)
+
 v1.1.0 - November 17, 2014
 
 * 1.1.0 (Nicholas C. Zakas)
