@@ -1,3 +1,10 @@
+v1.2.1 - November 19, 2014
+
+* 1.2.1 (Nicholas C. Zakas)
+* Make mocha a dev dependency (fixes #2) (Nicholas C. Zakas)
+* Fix repository url on package.json (Ruy Adorno)
+* 1.2.0 (Nicholas C. Zakas)
+
 v1.2.0 - November 17, 2014
 
 * 1.2.0 (Nicholas C. Zakas)
