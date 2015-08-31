@@ -72,6 +72,21 @@ describe("URLRewriteStream", function() {
 
         });
 
+        it("should emit an error event if there's a transform function error", function(done) {
+            var stream = new URLRewriteStream(function() {
+                throw new Error("This is bad");
+            });
+
+            fs.createReadStream("./tests/fixtures/minified-before.css")
+                .pipe(stream);
+
+            stream.on("error", function (e) {
+                assert(e instanceof Error, "it is an Error");
+                done();
+            });
+
+        });
+
     });
 
 });
