@@ -1,3 +1,10 @@
+v1.3.0 - August 31, 2015
+
+* 1.3.0 (Nicholas C. Zakas)
+* Docs: Update contributing.md (Nicholas C. Zakas)
+* Add error handler to URLRewriteStream transform (Christian Maniewski)
+* 1.2.1 (Nicholas C. Zakas)
+
 v1.2.1 - November 19, 2014
 
 * 1.2.1 (Nicholas C. Zakas)
