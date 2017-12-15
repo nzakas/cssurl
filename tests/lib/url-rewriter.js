@@ -148,7 +148,7 @@ describe("URLRewriter", function () {
 				var rewriter = new URLRewriter(function () {
 					return "bar.css";
 				});
-	
+
 				var result = rewriter.rewrite(fs.readFileSync("./tests/fixtures/before.css", "utf8"), "'");
 				assert.equal(result, fs.readFileSync("./tests/fixtures/after-single-quotes.css", "utf8"));
 			});
@@ -157,7 +157,7 @@ describe("URLRewriter", function () {
 				var rewriter = new URLRewriter(function () {
 					return "bar.css";
 				});
-	
+
 				var result = rewriter.rewrite(fs.readFileSync("./tests/fixtures/before.css", "utf8"), '"');
 				assert.equal(result, fs.readFileSync("./tests/fixtures/after-double-quotes.css", "utf8"));
 			});
@@ -166,7 +166,7 @@ describe("URLRewriter", function () {
 				var rewriter = new URLRewriter(function () {
 					return "bar.css";
 				});
-	
+
 				var result = rewriter.rewrite(fs.readFileSync("./tests/fixtures/minified-before.css", "utf8"), "'");
 				assert.equal(result, fs.readFileSync("./tests/fixtures/minified-after-single-quotes.css", "utf8"));
 			});
@@ -175,9 +175,22 @@ describe("URLRewriter", function () {
 				var rewriter = new URLRewriter(function () {
 					return "bar.css";
 				});
-	
+
 				var result = rewriter.rewrite(fs.readFileSync("./tests/fixtures/minified-before.css", "utf8"), '"');
 				assert.equal(result, fs.readFileSync("./tests/fixtures/minified-after-double-quotes.css", "utf8"));
+			});
+
+		});
+
+		describe("Complex URLs", function () {
+
+			it("should replace all link correctly", function () {
+				var rewriter = new URLRewriter(function () {
+					return "bar.css";
+				});
+
+				var result = rewriter.rewrite(fs.readFileSync("./tests/fixtures/font-before.css", "utf8"));
+				assert.equal(result, fs.readFileSync("./tests/fixtures/font-after.css", "utf8"));
 			});
 
 		});
