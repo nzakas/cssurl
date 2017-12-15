@@ -184,13 +184,22 @@ describe("URLRewriter", function () {
 
 		describe("Complex URLs", function () {
 
-			it("should replace all link correctly", function () {
+			it("replace with smaller link", function () {
 				var rewriter = new URLRewriter(function () {
 					return "bar.css";
 				});
 
 				var result = rewriter.rewrite(fs.readFileSync("./tests/fixtures/font-before.css", "utf8"));
 				assert.equal(result, fs.readFileSync("./tests/fixtures/font-after.css", "utf8"));
+			});
+
+			it("replace with bigger link", function () {
+				var rewriter = new URLRewriter(function () {
+					return "abcdefghijklmnopqrstuvwxyz-123456789-abcdefghijklmnopqrstuvwxyz-123456789-abcdefghijklmnopqrstuvwxyz-123456789.css";
+				});
+
+				var result = rewriter.rewrite(fs.readFileSync("./tests/fixtures/font-before.css", "utf8"), '"');
+				assert.equal(result, fs.readFileSync("./tests/fixtures/font-big-after.css", "utf8"));
 			});
 
 		});
