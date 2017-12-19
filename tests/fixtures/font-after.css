@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'FontAwesome';
+    src: url(bar.css);
+    src: url(bar.css); src: url(bar.css);
+    src: url(bar.css) url(bar.css);
+    src: url(bar.css) format("embedded-opentype"), url(bar.css) format("woff2"), url(bar.css) format("woff"), url(bar.css) format("truetype"), url(bar.css) format("svg");
+    font-weight: normal;
+    font-style: normal;
+}

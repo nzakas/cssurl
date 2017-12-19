@@ -28,19 +28,24 @@
     "major": "node Makefile.js major"
   },
   "dependencies": {
-    "parserlib": "^0.2.5"
+    "parserlib": "^1.1.1"
   },
   "devDependencies": {
-    "browserify": "^5.11.2",
-    "chai": "^1.9.1",
-    "dateformat": "^1.0.8",
-    "eslint": "^0.8.2",
-    "istanbul": "^0.3.2",
-    "jsdoc": "^3.3.0-alpha9",
-    "leche": "^1.0.1",
-    "mocha": "^2.0.1",
-    "shelljs": "^0.3.0",
+    "browserify": "^14.5.0",
+    "chai": "^4.1.2",
+    "dateformat": "^3.0.2",
+    "eslint": "^4.13.1",
+    "istanbul": "^0.4.5",
+    "jsdoc": "^3.5.5",
+    "leche": "^2.2.2",
+    "mocha": "^4.0.1",
+    "shelljs": "^0.7.8",
     "shelljs-nodecli": "^0.1.1",
-    "stream-string": "^0.1.0"
+    "stream-string": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0",
+    "yarn": ">=1.0.0"
   }
 }
