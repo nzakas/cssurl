@@ -42,5 +42,9 @@
     "shelljs": "^0.7.8",
     "shelljs-nodecli": "^0.1.1",
     "stream-string": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=6.0.0",
+    "yarn": ">= 1.0.0"
   }
 }
